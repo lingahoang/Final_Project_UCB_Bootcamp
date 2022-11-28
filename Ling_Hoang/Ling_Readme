@@ -310,6 +310,45 @@ Let's start with Logistic Regression model.
 
 As we can see, the accuracy score has been improved from 0% to 66%. 
 
-During the exploratory, I started with the solver. In the beginning, the solver was set as 'lbfgs' but after learning from skiitlearn, I switched it into 'newton-cg' and it worked. 
+During the exploratory, I started with the solver. In the beginning, the solver was set as 'lbfgs' with result in Convergen Warning: lbfgs failed to converge (status=1), but after learning from skiitlearn, I switched it into 'newton-cg' and it worked. 
 
+```
+    classifer = LogisticRegression(solver='newton-cg', random_state=0)
 
+```
+
+Second bug I had after fir(trian) the model using the training data, 
+
+Before the code would result in similar error above with Convergen Warning: lbfgs failed to converge (status=1), but then I replaced the fit with different data: 
+
+![Fit-Train](https://github.com/gothwalritu/Final_Project_UCB_Bootcamp/blob/Ling_Hoang/Segment_4/BL_Logistic_Regression_FitTrain.png)
+
+So intead of (X, y_trainsformed), I changed into (X_train, y_trainsformed).
+
+After training the new data, My prediction and actual is also working very well. 
+
+![BL_LR_PA](https://github.com/gothwalritu/Final_Project_UCB_Bootcamp/blob/Ling_Hoang/Segment_4/BL_Logistic_Regression_Pred_Act.png)
+
+Here is my confusion matrix with classification report:
+
+| Confusion Matrix | Classification Report | 
+| :---: | :---: |
+| ![CM](https://github.com/gothwalritu/Final_Project_UCB_Bootcamp/blob/Ling_Hoang/Segment_4/BL_Logistic_Regression_CM.png) | ![CR](https://github.com/gothwalritu/Final_Project_UCB_Bootcamp/blob/Ling_Hoang/Segment_4/BL_Logistic_Regression_Classification_Report.png) |
+| Confusion Matrix is not as great since there are a lots of number on Actual 1, 2 and 3. | Accuracy Score is 0.66 |
+
+I also tried to find the coefficien of each parameter with Water Quality Index.
+
+![Coef](https://github.com/gothwalritu/Final_Project_UCB_Bootcamp/blob/Ling_Hoang/Segment_4/BL_Logistic_Regression_Coef.png)
+
+Here are the comparison between the Logistic Regresison model and Random Forest model:
+
+| Logistic Regresison Model | Random Forest Model |
+| :---: | :---: |
+| Confusion Matrix  | Confusion Matrix |
+| ![LR](https://github.com/gothwalritu/Final_Project_UCB_Bootcamp/blob/Ling_Hoang/Segment_4/BL_Logistic_Regression_CM.png) | ![RF](https://github.com/gothwalritu/Final_Project_UCB_Bootcamp/blob/Ling_Hoang/Segment_4/BL_Random_Forest_CM.png) |
+| Classification Report | Classification Report |
+| ![LR](https://github.com/gothwalritu/Final_Project_UCB_Bootcamp/blob/Ling_Hoang/Segment_4/BL_Logistic_Regression_Classification_Report.png) | ![RF](https://github.com/gothwalritu/Final_Project_UCB_Bootcamp/blob/Ling_Hoang/Segment_4/BL_Random_Forest_ClassificationReport.png) |
+
+Based on the table above, we can conclude that Random Forest model is better than Logistic Regresison since the higher number in accuracy score of 0.99 in random forest. And the confusion matrix also has a better result with a clean diagonal line. 
+
+I think between these two model, we can now conclude that with random forest, the model has a higher in accuracy compares to logistic regression with higher interpretability or low accuracy. However, these are exploratory steps before we go deeper into further complicated models. 
