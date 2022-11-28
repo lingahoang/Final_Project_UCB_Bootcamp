@@ -296,8 +296,20 @@ Goal: to have a define and clear goal for our overall project.
 
 Goal: Tableau visualization. Correlation between parameters. 
 
+### Segment 4 ###
 
+After finishing all the visual and preparing for the presentation. I went back and double-checked on both of my models and apparently I found some errors that I decided to debug on. And here are the new result that I found with some comparision code snippets.
 
+At first, this is what I noticed and here if the accuracy score after I debugged. 
 
+Let's start with Logistic Regression model. 
+
+| Accuracy Score with Error | Accuracy Score without Error |
+| :---: | :---: |
+| ![LR_Before](https://github.com/gothwalritu/Final_Project_UCB_Bootcamp/blob/Ling_Hoang/Segment_4/BL_Logistic_Regression_AccuracyScore_Before.png) | ![LR_After](https://github.com/gothwalritu/Final_Project_UCB_Bootcamp/blob/Ling_Hoang/Segment_4/BL_Logistic_Regression_AccuracyScore_After.png) |
+
+As we can see, the accuracy score has been improved from 0% to 66%. 
+
+During the exploratory, I started with the solver. In the beginning, the solver was set as 'lbfgs' but after learning from skiitlearn, I switched it into 'newton-cg' and it worked. 
 
 
